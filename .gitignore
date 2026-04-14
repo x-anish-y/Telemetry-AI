@@ -1,0 +1,57 @@
+# IDE and editors
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+/node_modules
+/.pnp
+.pnp.js
+.yarn/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Testing
+/coverage
+backend_test_results.json
+ml_test_results.json
+test_reports/
+test_result.md
+
+# Next.js / React / Vite
+/.next/
+/out/
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dump.rdb
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment and credential files
+.env
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials
+token.json
+
+# Deployment
+.vercel
+
+# Project specific
+design_guidelines.json
+.emergent/

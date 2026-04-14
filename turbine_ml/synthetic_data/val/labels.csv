@@ -1,0 +1,14 @@
+filename,fault_type,blade_id,severity,fault_start_idx,max_drift_deg,spike_amplitude,power_loss_pct
+pitch_drift_004_b1_s40.csv,pitch_drift,1.0,0.4099660510802543,9893.0,4.459796306481525,,
+healthy_003.csv,normal,,0.0,,,,
+healthy_023.csv,normal,,0.0,,,,
+pitch_drift_018_b3_s65.csv,pitch_drift,3.0,0.6598730818412104,9048.0,5.959238491047262,,
+cyclic_vibration_014_b2_s49.csv,cyclic_vibration,2.0,0.499133427676368,7756.0,,3.4965337107054717,
+healthy_029.csv,normal,,0.0,,,,
+erosion_000_b3_s63.csv,erosion,3.0,0.6316460161081116,8095.0,,,0.14474690241621674
+erosion_011_b3_s57.csv,erosion,3.0,0.5788629786707385,7488.0,,,0.13682944680061077
+erosion_003_b1_s89.csv,erosion,1.0,0.8910156634925812,11257.0,,,0.1836523495238872
+erosion_019_b1_s55.csv,erosion,1.0,0.5568085308907862,10675.0,,,0.13352127963361793
+healthy_005.csv,normal,,0.0,,,,
+healthy_011.csv,normal,,0.0,,,,
+healthy_009.csv,normal,,0.0,,,,

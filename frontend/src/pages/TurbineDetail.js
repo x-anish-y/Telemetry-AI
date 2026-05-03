@@ -19,7 +19,9 @@ import {
 import { toast } from 'sonner';
 import html2canvas from 'html2canvas';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = process.env.REACT_APP_BACKEND_URL
+  ? `${process.env.REACT_APP_BACKEND_URL}/api`
+  : '/api';
 
 // Expected CSV format information
 const CSV_FORMAT = {

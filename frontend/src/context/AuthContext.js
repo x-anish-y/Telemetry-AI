@@ -3,14 +3,44 @@ import axios from 'axios';
 
 const AuthContext = createContext(null);
 
-const API = process.env.NODE_ENV === 'production' 
-  ? '/api' 
-  : `${process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'}/api`;
+const API = process.env.REACT_APP_BACKEND_URL
+  ? `${process.env.REACT_APP_BACKEND_URL}/api`
+  : '/api';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Ensure requests always include the latest token, and auto-logout on 401.
+    const requestInterceptor = axios.interceptors.request.use((config) => {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken && !config.headers?.Authorization) {
+        config.headers = config.headers || {};
+        config.headers.Authorization = `Bearer ${storedToken}`;
+      }
+      return config;
+    });
+
+    const responseInterceptor = axios.interceptors.response.use(
+      (response) => response,
+      (err) => {
+        if (err?.response?.status === 401) {
+          localStorage.removeItem('token');
+          delete axios.defaults.headers.common['Authorization'];
+          setToken(null);
+          setUser(null);
+        }
+        return Promise.reject(err);
+      },
+    );
+
+    return () => {
+      axios.interceptors.request.eject(requestInterceptor);
+      axios.interceptors.response.eject(responseInterceptor);
+    };
+  }, []);
 
   useEffect(() => {
     if (token) {

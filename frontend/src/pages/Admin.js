@@ -8,7 +8,9 @@ import { Label } from '../components/ui/label';
 import { ArrowLeft, Settings, Shield, Server, AlertCircle, CheckCircle, Brain, BarChart3 } from 'lucide-react';
 import { toast } from 'sonner';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = process.env.REACT_APP_BACKEND_URL
+  ? `${process.env.REACT_APP_BACKEND_URL}/api`
+  : '/api';
 
 export default function Admin() {
   const [config, setConfig] = useState({ demo_mode: true, ml_service_url: 'internal', ml_status: 'unknown' });

@@ -10,7 +10,9 @@ import { Textarea } from '../components/ui/textarea';
 import { ArrowLeft, Wand2, Download, Database, FileSpreadsheet, Info } from 'lucide-react';
 import { toast } from 'sonner';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = process.env.REACT_APP_BACKEND_URL
+  ? `${process.env.REACT_APP_BACKEND_URL}/api`
+  : '/api';
 
 // Expected output columns
 const OUTPUT_COLUMNS = [
